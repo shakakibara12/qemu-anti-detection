@@ -1,10 +1,6 @@
-## Other Project
-For Proxmox VE(PVE) Anti Detection, see https://github.com/zhaodice/proxmox-ve-anti-detection
-
 # QEMU Anti Detection
-A patch for various QEMU versions that aims to prevent VM detection methods based on data reported by the emulator. The "QEMU keyboard" for example is then renamed to "ASUS keyboard". Serial numbers, the VM bit in the guest's UEFI and the Boot Graphics Record Table are also modified. 
-However, because of timing based attacks like RDTSC, [which is reported incorrectly in a VM](https://github.com/WCharacter/RDTSC-KVM-Handler), this is not a silver bullet. 
-But changing this information of the virtual devices is still an integral part of creating an undetected virutal machine. 
+These QEMU patch modifies virtual hardware identifiers and system data reported by the emulator, to help prevent virtual machine detection. The modification involve, Device Renaming, Serial Number Alteration, UEFI VM Bit Removal, Boot Graphics Record Table (BGRT) and more!
+This is not a silver bullet because of timing based attacks like RDTSC (Read Time-Stamp Counter) which is reported incorrectly in a VM, see [RDTSC-KVM-Handler](https://github.com/WCharacter/RDTSC-KVM-Handler) or [updated but only for intel](https://github.com/YungBinary/RDTSC-KVM-Handler-v2) and some other factors which are listed below under Flaws.
 
  | Type       | Engine | Bypass |
  |------------|--------|--------|
@@ -21,8 +17,8 @@ But changing this information of the virtual devices is still an integral part o
  | Encrypt    | VMProtect | ☑️ | 
  | Encrypt    | VProtect | ☑️ |       
 
-‼️ There are games that cannot run under this environment but I am not sure whether QEMU has been detected, because the game doesn't report "Virtual machine detected" specifically. 
-If you have any clue, feel free to tell me :)
+‼️ There are still a lot games that cannot run under this environment because the games are becoming more and more complex, it is hard to know what they are looking at to detect the VM specifically
+If you have any clues, feel free to join in!
 
 ### Flaws this patch does not fix in QEMU's source:
 These commands exit with "No instance(s) available" and could therefore EXPOSE THE VM. We do not yet know how to simulate this data.
@@ -142,4 +138,6 @@ Insert YOUR virtual machine's uuid.
   </qemu:commandline>
 </domain>
 ```
-![Screenshot_20220819_230305](https://user-images.githubusercontent.com/63996691/185649897-b7609626-ee6d-42b1-bc5e-4465cb41a19a.png)
+![detection](img/detection.png)
+
+# Credits and References
