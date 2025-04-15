@@ -2,6 +2,8 @@
 These QEMU patch modifies virtual hardware identifiers and system data reported by the emulator, to help prevent virtual machine detection. The modification involve, Device Renaming, Serial Number Alteration, UEFI VM Bit Removal, Boot Graphics Record Table (BGRT) and more!
 This is not a silver bullet because of timing based attacks like RDTSC (Read Time-Stamp Counter) which is reported incorrectly in a VM, see [RDTSC-KVM-Handler](https://github.com/WCharacter/RDTSC-KVM-Handler) or [updated but only for intel](https://github.com/YungBinary/RDTSC-KVM-Handler-v2) and some other factors which are listed below under Flaws.
 
+Fork of the original (qemu-anti-detection)[https://github.com/zhaodice/qemu-anti-detection]
+
  | Type       | Engine | Bypass |
  |------------|--------|--------|
  | AntiCheat  | Anti Cheat Expert (ACE) | ☑️ |
@@ -53,11 +55,11 @@ wmic path CIM_VoltageSensor get *
 
 ## Patching and building QEMU
 ```
-git clone https://github.com/zhaodice/qemu-anti-detection.git
-wget https://download.qemu.org/qemu-8.2.2.tar.xz
-tar xvJf qemu-8.2.2.tar.xz
-cd qemu-8.2.2
-git apply ../qemu-anti-detection/qemu-8.2.0.patch
+git clone https://codeberg.org/shakakibara/qemu-anti-detection
+wget https://download.qemu.org/qemu-9.0.1.tar.xz
+tar xvJf qemu-9.0.1.tar.xz
+cd qemu-9.0.1
+git apply ../qemu-anti-detection/qemu-9.0.1.patch
 ./configure
 sudo make install -j$(nproc)
 ```
