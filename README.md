@@ -56,10 +56,10 @@ wmic path CIM_VoltageSensor get *
 ## Patching and building QEMU
 ```
 git clone https://codeberg.org/shakakibara/qemu-anti-detection
-wget https://download.qemu.org/qemu-9.2.3.tar.xz
-tar xvJf qemu-9.2.3.tar.xz
-cd qemu-9.2.3
-git apply ../qemu-anti-detection/qemu-9.2.3.patch
+wget https://download.qemu.org/qemu-10.0.2.tar.xz
+tar xvJf qemu-10.0.2.tar.xz
+cd qemu-10.0.2
+git apply ../qemu-anti-detection/qemu-10.0.2.patch
 ./configure
 sudo make install -j$(nproc)
 ```
