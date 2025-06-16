@@ -140,7 +140,7 @@ Insert YOUR virtual machine's uuid.
   </qemu:commandline>
 </domain>
 ```
-![detection](img/detection.jpg)
+![detection](img/detection.webp)
 
 # Credits and References
 [zhaodice](https://github.com/zhaodice/qemu-anti-detection) for giving me the motivation and overall base.
