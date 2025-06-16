@@ -49,7 +49,8 @@ wmic path CIM_VoltageSensor get *
 
 **Arch**:
 `pacman -Sy bison flex pkgconfig gcc make git wget base-devel glib2 ninja python`
-**Without qemu already installed**
+
+**Without qemu already installed:**
 `pacman -Sy bison flex pkgconfig gcc make git wget base-devel glib2 ninja python multipath-tools libxdp vde2 libslirp rutabaga-ffi libiscsi glusterfs dtc ndctl brltty libaio sdl2_image`
 
 ## Patching and building QEMU
