@@ -23,7 +23,7 @@ Fork of the original [qemu-anti-detection](https://github.com/zhaodice/qemu-anti
 If you have any clues, feel free to join in!
 
 ### Flaws this patch does not fix in QEMU's source:
-These commands exit with "No instance(s) available" and could therefore EXPOSE THE VM. We do not yet know how to simulate this data.
+These commands exit with "No instance(s) available" and could therefore expose the vm. We do not yet know how to simulate this data.
 ```
 wmic path Win32_Fan get *
 
@@ -140,6 +140,9 @@ Insert YOUR virtual machine's uuid.
   </qemu:commandline>
 </domain>
 ```
-![detection](img/detection.png)
+![detection](img/detection.jpg)
 
 # Credits and References
+[zhaodice](https://github.com/zhaodice/qemu-anti-detection) for giving me the motivation and overall base.
+[lixiaoliu666](https://github.com/lixiaoliu666/pve-anti-detection) for showing me the overkill way.
+
