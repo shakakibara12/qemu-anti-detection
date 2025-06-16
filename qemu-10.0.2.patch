@@ -63,24 +63,6 @@ index bb41758e3..9f778f3ad 100644
      g_option_context_add_main_entries(context, entries, NULL);
      if (!g_option_context_parse(context, &argc, &argv, &error)) {
          g_printerr("Option parsing failed: %s\n", error->message);
-diff --git a/hw/acpi/aml-build.c b/hw/acpi/aml-build.c
-index 72282b173..4583234ac 100644
---- a/hw/acpi/aml-build.c
-+++ b/hw/acpi/aml-build.c
-@@ -1723,11 +1723,11 @@ void acpi_table_begin(AcpiTable *desc, GArray *array)
-     build_append_int_noprefix(array, 0, 4); /* Length */
-     build_append_int_noprefix(array, desc->rev, 1); /* Revision */
-     build_append_int_noprefix(array, 0, 1); /* Checksum */
--    build_append_padded_str(array, desc->oem_id, 6, '\0'); /* OEMID */
-+    build_append_padded_str(array, ACPI_BUILD_APPNAME6, 6, '\0'); /* OEMID */ /* desc->oem_id */
-     /* OEM Table ID */
--    build_append_padded_str(array, desc->oem_table_id, 8, '\0');
-+    build_append_padded_str(array, ACPI_BUILD_APPNAME8, 8, '\0'); /* desc->oem_table_id */
-     build_append_int_noprefix(array, 1, 4); /* OEM Revision */
--    g_array_append_vals(array, ACPI_BUILD_APPNAME8, 4); /* Creator ID */
-+    g_array_append_vals(array, "PTL ", 4); /* Creator ID */
-     build_append_int_noprefix(array, 1, 4); /* Creator Revision */
- }
  
 diff --git a/hw/arm/sbsa-ref.c b/hw/arm/sbsa-ref.c
 index e9985a5e3..88791db2d 100644
