@@ -48,10 +48,9 @@ wmic path CIM_VoltageSensor get *
 ⚠️ _Always maintain an installation of QEMU managed by your package manager, because it may delete necessary runtime dependencies otherwise! The binaries you compile are saved in **/usr/local/bin**, so they will take precedence._
 
 **Arch**:
-`sudo pacman -S git wget base-devel glib2 ninja python`
-
-**Ubuntu**:
-`sudo apt install git build-essential ninja-build python-venv libglib2.0-0 flex bison`
+`pacman -Sy bison flex pkgconfig gcc make git wget base-devel glib2 ninja python`
+**Without qemu already installed**
+`pacman -Sy bison flex pkgconfig gcc make git wget base-devel glib2 ninja python multipath-tools libxdp vde2 libslirp rutabaga-ffi libiscsi glusterfs dtc ndctl brltty libaio sdl2_image`
 
 ## Patching and building QEMU
 ```
