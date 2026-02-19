@@ -85,7 +85,6 @@ Insert YOUR virtual machine's uuid.
   <vcpu placement="static">12</vcpu>
   <os firmware="efi">
     <type arch="x86_64" machine="pc-q35-7.0">hvm</type>
-    <loader/>
     <smbios mode="host"/>
   </os>
   <features>
