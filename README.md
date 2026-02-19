@@ -64,6 +64,24 @@ patch -p1 < ../qemu-anti-detection/qemu-10.0.2.patch
 sudo make install -j$(nproc)
 ```
 
+## How to make patches
+This is the method which i use to create patch which i learned by myself. So there might be a better
+way instead of this, for now this works.
+### Download the qemu release
+`wget https://download.qemu.org/qemu-10.x.x.tar.xz`
+### Extract it
+`tar xvJf qemu-10.x.x.tar.xz`
+### Initialize a git repo (for creating patch using git)
+`git init`
+### Commit the changes once
+`git commit -am "original files"`
+### Apply the existing latest patch available
+`patch -p1 < ../qemu-anti-detection/qemu-10.x.x.patch`
+### Manually fix the conflicts, adding other modifications etc. Then create patch
+`git diff > qemu-10.x.x.patch`
+### Profit?
+
+
 # QEMU XML Config
 
 Insert YOUR virtual machine's uuid.
